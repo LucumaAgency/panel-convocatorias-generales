@@ -25,21 +25,16 @@ require_once CM_PLUGIN_DIR . 'includes/class-convocatorias-acf.php';
 require_once CM_PLUGIN_DIR . 'includes/class-convocatorias-shortcodes.php';
 require_once CM_PLUGIN_DIR . 'includes/class-convocatorias-estados.php';
 
-// Inicializar el plugin
-function cm_init() {
-    // Inicializar las clases
-    new Convocatorias_CPT();
-    new Convocatorias_ACF();
-    new Convocatorias_Shortcodes();
-    new Convocatorias_Estados();
-}
-add_action('init', 'cm_init');
+// Inicializar las clases inmediatamente
+new Convocatorias_CPT();
+new Convocatorias_ACF();
+new Convocatorias_Shortcodes();
+new Convocatorias_Estados();
 
 // Activación del plugin
 function cm_activate() {
-    // Crear el CPT
+    // Registrar el CPT temporalmente para el flush
     $cpt = new Convocatorias_CPT();
-    $cpt->register_post_type();
 
     // Limpiar los permalinks
     flush_rewrite_rules();
