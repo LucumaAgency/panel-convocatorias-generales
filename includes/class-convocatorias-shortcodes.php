@@ -111,53 +111,41 @@ class Convocatorias_Shortcodes {
                                     );
 
                                     // Entrega de bases
-                                    // DEBUG: Ver qué valores estamos obteniendo
-                                    $debug1 = get_field('entrega_bases_accion1', $post_id);
-                                    $debug2 = get_field('entrega_bases_accion2', $post_id);
-                                    $debug3 = get_field('entrega_bases_accion3', $post_id);
-
-                                    // Mostrar debug temporalmente
-                                    echo "<!-- DEBUG Entrega de bases: ";
-                                    echo "Campo 1: " . var_export($debug1, true) . " | ";
-                                    echo "Campo 2: " . var_export($debug2, true) . " | ";
-                                    echo "Campo 3: " . var_export($debug3, true);
-                                    echo " -->";
-
-                                    $this->render_table_row_smart(
+                                    $this->render_table_row_with_icons(
                                         'Entrega de bases',
                                         get_field('entrega_bases', $post_id),
                                         array(
-                                            array('content' => $debug1, 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
-                                            array('content' => $debug2, 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png'),
-                                            array('content' => $debug3, 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
+                                            array('url' => get_field('entrega_bases_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
+                                            array('url' => get_field('entrega_bases_accion2', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png'),
+                                            array('url' => get_field('entrega_bases_accion3', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
                                         )
                                     );
 
                                     // Registro de participantes
-                                    $this->render_table_row_smart(
+                                    $this->render_table_row_with_icons(
                                         'Registro de participantes',
                                         get_field('registro_participantes', $post_id),
                                         array(
-                                            array('content' => get_field('registro_participantes_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/enlace.png')
+                                            array('url' => get_field('registro_participantes_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/enlace.png')
                                         )
                                     );
 
                                     // Formulación de consultas
-                                    $this->render_table_row_smart(
+                                    $this->render_table_row_with_icons(
                                         'Formulación de consultas y aclaraciones a las bases',
                                         get_field('formulacion_consultas', $post_id),
                                         array(
-                                            array('content' => get_field('formulacion_consultas_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/enlace.png')
+                                            array('url' => get_field('formulacion_consultas_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/enlace.png')
                                         )
                                     );
 
                                     // Absolución de consultas
-                                    $this->render_table_row_smart(
+                                    $this->render_table_row_with_icons(
                                         'Absolución de consultas y observaciones a las bases',
                                         get_field('absolucion_consultas', $post_id),
                                         array(
-                                            array('content' => get_field('absolucion_consultas_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
-                                            array('content' => get_field('absolucion_consultas_accion2', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
+                                            array('url' => get_field('absolucion_consultas_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
+                                            array('url' => get_field('absolucion_consultas_accion2', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
                                         )
                                     );
 
@@ -169,20 +157,20 @@ class Convocatorias_Shortcodes {
                                     );
 
                                     // Presentación de ofertas
-                                    $this->render_table_row_smart(
+                                    $this->render_table_row_with_icons(
                                         'Presentación de ofertas solo en físico',
                                         get_field('presentacion_ofertas', $post_id),
                                         array(
-                                            array('content' => get_field('presentacion_ofertas_url', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/comunicado.png')
+                                            array('url' => get_field('presentacion_ofertas_url', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/comunicado.png')
                                         )
                                     );
 
                                     // Evaluación y adjudicación
-                                    $this->render_table_row_smart(
+                                    $this->render_table_row_with_icons(
                                         'Evaluación y adjudicación de Buena Pro',
                                         get_field('evaluacion_adjudicacion', $post_id),
                                         array(
-                                            array('content' => get_field('evaluacion_adjudicacion_url', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png')
+                                            array('url' => get_field('evaluacion_adjudicacion_url', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png')
                                         )
                                     );
                                     ?>
@@ -242,9 +230,9 @@ class Convocatorias_Shortcodes {
     }
 
     /**
-     * Renderizar fila inteligente que detecta si es URL o texto
+     * Renderizar fila con iconos - Solo URLs
      */
-    private function render_table_row_smart($etapa, $fecha, $items) {
+    private function render_table_row_with_icons($etapa, $fecha, $items) {
         ?>
         <tr>
             <td class="etapa-cell"><?php echo esc_html($etapa); ?></td>
@@ -254,56 +242,28 @@ class Convocatorias_Shortcodes {
             <td class="acciones-cell">
                 <?php
                 if (is_array($items) && !empty($items)) {
-                    $has_content = false;
-                    $all_urls = true;
+                    $has_urls = false;
 
-                    // Verificar si hay contenido y si todos son URLs
+                    // Verificar si hay URLs válidas
                     foreach ($items as $item) {
-                        if (!empty($item['content'])) {
-                            $has_content = true;
-                            if (!filter_var($item['content'], FILTER_VALIDATE_URL)) {
-                                $all_urls = false;
-                            }
+                        if (!empty($item['url']) && filter_var($item['url'], FILTER_VALIDATE_URL)) {
+                            $has_urls = true;
+                            break;
                         }
                     }
 
-                    if ($has_content) {
-                        if ($all_urls) {
-                            // Si todos son URLs, mostrar iconos
-                            echo '<div class="iconos-wrapper">';
-                            foreach ($items as $item) {
-                                if (!empty($item['content']) && !empty($item['icon'])) {
-                                    ?>
-                                    <a href="<?php echo esc_url($item['content']); ?>" target="_blank" class="icono-link">
-                                        <img src="<?php echo esc_url($item['icon']); ?>" alt="Documento" class="icono-documento">
-                                    </a>
-                                    <?php
-                                }
+                    if ($has_urls) {
+                        echo '<div class="iconos-wrapper">';
+                        foreach ($items as $item) {
+                            if (!empty($item['url']) && filter_var($item['url'], FILTER_VALIDATE_URL) && !empty($item['icon'])) {
+                                ?>
+                                <a href="<?php echo esc_url($item['url']); ?>" target="_blank" class="icono-link">
+                                    <img src="<?php echo esc_url($item['icon']); ?>" alt="Documento" class="icono-documento">
+                                </a>
+                                <?php
                             }
-                            echo '</div>';
-                        } else {
-                            // Si hay texto, mostrar como lista
-                            echo '<ul class="acciones-list">';
-                            foreach ($items as $item) {
-                                if (!empty($item['content'])) {
-                                    // Si es URL, mostrar como link con icono inline
-                                    if (filter_var($item['content'], FILTER_VALIDATE_URL)) {
-                                        ?>
-                                        <li>
-                                            <a href="<?php echo esc_url($item['content']); ?>" target="_blank" class="icono-link">
-                                                <img src="<?php echo esc_url($item['icon']); ?>" alt="Documento" class="icono-documento" style="display: inline; width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
-                                                Ver documento
-                                            </a>
-                                        </li>
-                                        <?php
-                                    } else {
-                                        // Si es texto, mostrar como texto
-                                        echo '<li>' . esc_html($item['content']) . '</li>';
-                                    }
-                                }
-                            }
-                            echo '</ul>';
                         }
+                        echo '</div>';
                     } else {
                         echo '-';
                     }
