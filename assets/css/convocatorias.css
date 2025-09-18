@@ -8,7 +8,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
 }
 
 /* Item de convocatoria - 600px cada uno */
