@@ -42,3 +42,21 @@
     padding: 20px;
     text-align: center;
 }
+
+/* Iconos de documentos */
+.iconos-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.icono-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.icono-documento {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}

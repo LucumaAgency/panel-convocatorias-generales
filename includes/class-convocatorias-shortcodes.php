@@ -111,37 +111,41 @@ class Convocatorias_Shortcodes {
                                     );
 
                                     // Entrega de bases
-                                    $this->render_table_row(
+                                    $this->render_table_row_with_icons(
                                         'Entrega de bases',
                                         get_field('entrega_bases', $post_id),
                                         array(
-                                            get_field('entrega_bases_accion1', $post_id),
-                                            get_field('entrega_bases_accion2', $post_id),
-                                            get_field('entrega_bases_accion3', $post_id)
+                                            array('url' => get_field('entrega_bases_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
+                                            array('url' => get_field('entrega_bases_accion2', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png'),
+                                            array('url' => get_field('entrega_bases_accion3', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
                                         )
                                     );
 
                                     // Registro de participantes
-                                    $this->render_table_row(
+                                    $this->render_table_row_with_icons(
                                         'Registro de participantes',
                                         get_field('registro_participantes', $post_id),
-                                        array(get_field('registro_participantes_accion1', $post_id))
+                                        array(
+                                            array('url' => get_field('registro_participantes_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/enlace.png')
+                                        )
                                     );
 
                                     // Formulación de consultas
-                                    $this->render_table_row(
+                                    $this->render_table_row_with_icons(
                                         'Formulación de consultas y aclaraciones a las bases',
                                         get_field('formulacion_consultas', $post_id),
-                                        array(get_field('formulacion_consultas_accion1', $post_id))
+                                        array(
+                                            array('url' => get_field('formulacion_consultas_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/enlace.png')
+                                        )
                                     );
 
                                     // Absolución de consultas
-                                    $this->render_table_row(
+                                    $this->render_table_row_with_icons(
                                         'Absolución de consultas y observaciones a las bases',
                                         get_field('absolucion_consultas', $post_id),
                                         array(
-                                            get_field('absolucion_consultas_accion1', $post_id),
-                                            get_field('absolucion_consultas_accion2', $post_id)
+                                            array('url' => get_field('absolucion_consultas_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
+                                            array('url' => get_field('absolucion_consultas_accion2', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
                                         )
                                     );
 
@@ -153,17 +157,21 @@ class Convocatorias_Shortcodes {
                                     );
 
                                     // Presentación de ofertas
-                                    $this->render_table_row(
+                                    $this->render_table_row_with_icons(
                                         'Presentación de ofertas solo en físico',
                                         get_field('presentacion_ofertas', $post_id),
-                                        ''
+                                        array(
+                                            array('url' => get_field('presentacion_ofertas_url', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/comunicado.png')
+                                        )
                                     );
 
                                     // Evaluación y adjudicación
-                                    $this->render_table_row(
+                                    $this->render_table_row_with_icons(
                                         'Evaluación y adjudicación de Buena Pro',
                                         get_field('evaluacion_adjudicacion', $post_id),
-                                        ''
+                                        array(
+                                            array('url' => get_field('evaluacion_adjudicacion_url', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png')
+                                        )
                                     );
                                     ?>
                                 </tbody>
@@ -214,6 +222,51 @@ class Convocatorias_Shortcodes {
                     }
                 } else {
                     echo $acciones ? esc_html($acciones) : '-';
+                }
+                ?>
+            </td>
+        </tr>
+        <?php
+    }
+
+    /**
+     * Renderizar fila de la tabla con iconos
+     */
+    private function render_table_row_with_icons($etapa, $fecha, $iconos_urls) {
+        ?>
+        <tr>
+            <td class="etapa-cell"><?php echo esc_html($etapa); ?></td>
+            <td class="fecha-cell">
+                <?php echo $fecha ? esc_html($fecha) : '-'; ?>
+            </td>
+            <td class="acciones-cell">
+                <?php
+                if (is_array($iconos_urls) && !empty($iconos_urls)) {
+                    $has_content = false;
+                    foreach ($iconos_urls as $item) {
+                        if (!empty($item['url'])) {
+                            $has_content = true;
+                            break;
+                        }
+                    }
+
+                    if ($has_content) {
+                        echo '<div class="iconos-wrapper">';
+                        foreach ($iconos_urls as $item) {
+                            if (!empty($item['url']) && !empty($item['icon'])) {
+                                ?>
+                                <a href="<?php echo esc_url($item['url']); ?>" target="_blank" class="icono-link">
+                                    <img src="<?php echo esc_url($item['icon']); ?>" alt="Documento" class="icono-documento">
+                                </a>
+                                <?php
+                            }
+                        }
+                        echo '</div>';
+                    } else {
+                        echo '-';
+                    }
+                } else {
+                    echo '-';
                 }
                 ?>
             </td>
