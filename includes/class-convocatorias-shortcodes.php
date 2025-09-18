@@ -92,20 +92,6 @@ class Convocatorias_Shortcodes {
                     $post_id = get_the_ID();
                     ?>
                     <div class="convocatoria-item">
-                        <h3 class="convocatoria-titulo">
-                            <?php
-                            $nombre = get_field('nombre_convocatoria', $post_id);
-                            echo esc_html($nombre ? $nombre : get_the_title());
-                            ?>
-                        </h3>
-
-                        <?php
-                        $descripcion = get_field('descripcion', $post_id);
-                        if ($descripcion) {
-                            echo '<div class="convocatoria-descripcion">' . wp_kses_post($descripcion) . '</div>';
-                        }
-                        ?>
-
                         <div class="convocatoria-table-wrapper">
                             <table class="convocatoria-table">
                                 <thead>
@@ -182,12 +168,6 @@ class Convocatorias_Shortcodes {
                                     ?>
                                 </tbody>
                             </table>
-                        </div>
-
-                        <div class="convocatoria-estado">
-                            <span class="estado-badge estado-<?php echo esc_attr($tipo === 'vigentes' ? 'vigente' : 'concluida'); ?>">
-                                <?php echo $tipo === 'vigentes' ? 'VIGENTE' : 'CONCLUIDA'; ?>
-                            </span>
                         </div>
                     </div>
                     <?php
