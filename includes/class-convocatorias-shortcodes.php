@@ -111,13 +111,25 @@ class Convocatorias_Shortcodes {
                                     );
 
                                     // Entrega de bases
+                                    // DEBUG: Ver qué valores estamos obteniendo
+                                    $debug1 = get_field('entrega_bases_accion1', $post_id);
+                                    $debug2 = get_field('entrega_bases_accion2', $post_id);
+                                    $debug3 = get_field('entrega_bases_accion3', $post_id);
+
+                                    // Mostrar debug temporalmente
+                                    echo "<!-- DEBUG Entrega de bases: ";
+                                    echo "Campo 1: " . var_export($debug1, true) . " | ";
+                                    echo "Campo 2: " . var_export($debug2, true) . " | ";
+                                    echo "Campo 3: " . var_export($debug3, true);
+                                    echo " -->";
+
                                     $this->render_table_row_smart(
                                         'Entrega de bases',
                                         get_field('entrega_bases', $post_id),
                                         array(
-                                            array('content' => get_field('entrega_bases_accion1', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
-                                            array('content' => get_field('entrega_bases_accion2', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png'),
-                                            array('content' => get_field('entrega_bases_accion3', $post_id), 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
+                                            array('content' => $debug1, 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/docs-1.png'),
+                                            array('content' => $debug2, 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png'),
+                                            array('content' => $debug3, 'icon' => 'https://fospibay.org.pe/inicio/wp-content/uploads/2020/07/planos_docuementos_anexos_formatos.png')
                                         )
                                     );
 

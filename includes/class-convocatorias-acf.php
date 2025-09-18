@@ -11,6 +11,22 @@ class Convocatorias_ACF {
 
     public function __construct() {
         add_action('acf/init', array($this, 'register_fields'));
+        // Forzar actualización de campos
+        add_action('init', array($this, 'maybe_update_fields'), 20);
+    }
+
+    public function maybe_update_fields() {
+        // Eliminar el grupo anterior si existe
+        if (function_exists('acf_get_field_group')) {
+            $existing_group = acf_get_field_group('field_convocatorias');
+            if ($existing_group) {
+                // Forzar actualización
+                acf_update_field_group(array(
+                    'key' => 'field_convocatorias',
+                    'active' => true
+                ));
+            }
+        }
     }
 
     public function register_fields() {
