@@ -2,13 +2,18 @@
  * Estilos mínimos para el plugin Convocatorias Manager
  */
 
-/* Wrapper principal */
+/* Wrapper principal - dos columnas */
 .convocatorias-wrapper {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
 }
 
-/* Item de convocatoria */
+/* Item de convocatoria - 600px cada uno */
 .convocatoria-item {
+    width: 600px;
     margin-bottom: 30px;
 }
 
@@ -59,4 +64,16 @@
     width: 30px;
     height: 30px;
     object-fit: contain;
+}
+
+/* Responsive - una columna en móviles */
+@media (max-width: 1240px) {
+    .convocatorias-wrapper {
+        justify-content: center;
+    }
+
+    .convocatoria-item {
+        width: 100%;
+        max-width: 600px;
+    }
 }
