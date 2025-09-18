@@ -92,6 +92,18 @@ class Convocatorias_Shortcodes {
                     $post_id = get_the_ID();
                     ?>
                     <div class="convocatoria-item">
+                        <?php
+                        $nombre = get_field('nombre_convocatoria', $post_id);
+                        $descripcion = get_field('descripcion', $post_id);
+
+                        if ($nombre) {
+                            echo '<h3 class="convocatoria-titulo">' . esc_html($nombre) . '</h3>';
+                        }
+
+                        if ($descripcion) {
+                            echo '<div class="convocatoria-descripcion">' . wp_kses_post($descripcion) . '</div>';
+                        }
+                        ?>
                         <div class="convocatoria-table-wrapper">
                             <table class="convocatoria-table">
                                 <thead>
