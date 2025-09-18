@@ -3,7 +3,7 @@
  * Plugin Name: Convocatorias Manager
  * Plugin URI: https://tu-sitio.com/
  * Description: Plugin para gestionar convocatorias vigentes y concluidas con ACF
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Tu Nombre
  * License: GPL v2 or later
  * Text Domain: convocatorias-manager
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Definir constantes del plugin
-define('CM_VERSION', '1.0.0');
+define('CM_VERSION', '1.0.1');
 define('CM_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('CM_PLUGIN_URL', plugin_dir_url(__FILE__));
 
